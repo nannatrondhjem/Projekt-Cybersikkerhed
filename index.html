@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAILIEN - Din Cyber Buddy</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="img/Mailien logo.jpeg" alt="Mailien Logo" class="logo">
+      <h1>MAILIEN</h1>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2>Jeg er din cyber'buddy</h2>
+        <p>Mit navn er Mailien</p>
+        <p>Jeg er her for at hjælpe dig med at beskytte dine data</p>
+        <a href="#info" class="btn">Mere info</a>
+      </div>
+      <div class="hero-image">
+        <img src="img/Mailien.png" alt="Mailien Maskot" class="mascot">
+      </div>
+    </div>
+  </section>
+
+  <section id="info">
+    <h3>Velkommen ombord på SpaceCommand</h3>
+    <p>Cybersikkerhed handler om at beskytte dine data, din identitet og dine enheder. </p>
+    <p>Her kan du rejse ind i forskellige spaces og forsøge at cybersikre din digitale færden.</p>
+    <a href="#scenarios" class="btn">Udforsk scenarier</a>
+  </section>
+
+  <section id="scenarios">
+    <h3>Vælg din mission</h3>
+    <div class="scenario-buttons">
+      <div class="scenario-card">
+        <h4>Mission 1: Email-fælden</h4>
+        <p>Du har modtaget en mystisk email fra din "bank". Er det en fælde?</p>
+        <button class="scenario-btn" data-scenario="1">Start mission</button>
+      </div>
+      <div class="scenario-card">
+        <h4>Mission 2: Sociale Medier</h4>
+        <p>En fremmed vil være venner med dig online. Hvad gør du?</p>
+        <button class="scenario-btn" data-scenario="2">Start mission</button>
+      </div>
+      <div class="scenario-card">
+        <h4>Mission 3: Password Panik</h4>
+        <p>Dit password er blevet lækket. Hvordan beskytter du dig?</p>
+        <button class="scenario-btn" data-scenario="3">Start mission</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="choices">
+    <div class="container">
+      <div id="choicesOverview">
+        <!-- Dynamisk indhold med brugerens valg indsættes her -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CyberSecure. Alle rettigheder forbeholdes.</p>
+  </footer>
+
+  <div class="popup-overlay" id="welcomePopup">
+    <div class="popup">
+      <h3>Fedt at du vil lære mere!</h3>
+      <p>Vidste du at 274.000 danskere i 2024 har været udsat for digital svindel? Måske er du endda én af dem.</p>
+      <p>Lad mig hjælpe dig med at lære om cybersikkerhed gennem interaktive scenarier. Er du klar til at begynde rejsen?</p>
+      <button class="btn" id="nextButton">Ja, lad os rejse</button>
+    </div>
+  </div>
+
+  <!-- Scenario popups -->
+  <div class="popup-overlay" id="scenarioPopup">
+    <div class="popup scenario-popup">
+      <div id="scenarioContent">
+        <!-- Dynamisk indhold indsættes her -->
+      </div>
+      <div class="scenario-options">
+        <!-- Valgmuligheder indsættes her -->
+      </div>
+      <div class="scenario-feedback" style="display: none;">
+        <!-- Feedback indsættes her -->
+      </div>
+      <div class="scenario-controls">
+        <button class="btn" id="scenarioNextBtn" style="display: none;">Næste</button>
+        <button class="btn" id="scenarioCloseBtn" style="display: none;">Afslut</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,423 @@
+// 🎨 Farvepalette
+$primary-color: #0f1f2f;
+$accent-color: #1fc1c3;
+$light-color: #f5f5f5;
+$dark-color: #091118;
+$text-color: #ffffff;
+$btn-color: #ff5e5e;
+$btn-hover: #e64545;
+
+// 🧱 Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: $dark-color;
+  color: $text-color;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// 🔼 Header
+header {
+  background: $dark-color;
+  padding: 1rem 2rem;
+  text-align: center;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    h1 {
+      color: $light-color;
+      margin: 0;
+      font-size: 2rem;
+    }
+  }
+}
+
+// 🦸‍♂️ Hero sektion
+#hero {
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      gap: 2rem;
+    }
+  }
+
+  .hero-text {
+    flex: 1;
+    max-width: 500px;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: $accent-color;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: $light-color;
+    }
+  }
+
+  .hero-image {
+    flex: 1;
+    max-width: 400px;
+
+    .mascot {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+
+  .btn {
+    display: inline-block;
+    background: $btn-color;
+    color: $text-color;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: $btn-hover;
+    }
+  }
+}
+
+// Sektions visning
+section {
+  display: none;
+}
+
+#hero {
+  display: block; // Vis hero section som standard indtil bruger navigerer væk
+}
+
+section.active {
+  display: block !important;
+}
+
+// Skjul hero når en anden sektion er aktiv
+section.active:not(#hero) ~ #hero {
+  display: none !important;
+}
+
+// 🧠 Info sektion
+#info {
+  padding: 4rem 2rem;
+  background: $light-color;
+  color: $dark-color;
+  text-align: center;
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    margin-top: 2rem;
+    display: inline-block;
+    background: $btn-color;
+    color: $text-color;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+
+    &:hover {
+      background: $btn-hover;
+    }
+  }
+}
+
+// 🎮 Scenarier
+#scenarios {
+  padding: 4rem 2rem;
+  background: $primary-color;
+  text-align: center;
+
+  .scenario-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+  }
+
+  .scenario-card {
+    background: $dark-color;
+    border: 2px solid $accent-color;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    h4 {
+      color: $accent-color;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: $light-color;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .scenario-btn {
+      background: $accent-color;
+      color: $dark-color;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: lighten($accent-color, 10%);
+      }
+    }
+  }
+}
+
+// Scenario popup styling
+.scenario-popup {
+  max-width: 600px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+  .email-preview, .social-preview, .breach-preview {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+    text-align: left;
+
+    a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+  }
+
+  .scenario-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1.5rem 0;
+
+    .scenario-option {
+      background: $accent-color;
+      color: $dark-color;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1rem;
+
+      &:hover {
+        background: lighten($accent-color, 10%);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .scenario-feedback {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+
+    &.correct {
+      background: rgba(#4CAF50, 0.1);
+      border: 1px solid #4CAF50;
+    }
+
+    &.incorrect {
+      background: rgba(#f44336, 0.1);
+      border: 1px solid #f44336;
+    }
+
+    h4 {
+      margin-bottom: 0.5rem;
+      color: $dark-color;
+    }
+  }
+
+  .scenario-controls {
+    margin-top: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    
+    .btn {
+      min-width: 120px;
+      font-size: 1rem;
+      display: none; // Skjul knappen som standard
+    }
+  }
+}
+
+// Popup styling
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($primary-color, 0.8);
+  z-index: 1000;
+
+  &.active {
+    display: block;
+  }
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  z-index: 1001;
+  text-align: center;
+  color: $dark-color;
+
+  h3 {
+    color: $primary-color;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: $dark-color;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    display: block;
+  }
+
+  .btn {
+    display: inline-block;
+    margin: 0.5rem;
+    background: $btn-color;
+    color: $text-color;
+    padding: 0.75rem 2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    
+    &:hover {
+      background: $btn-hover;
+    }
+  }
+}
+
+// 🔽 Footer
+footer {
+  background: $dark-color;
+  color: $text-color;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+};
+
+/* Choices section */
+#choices {
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+#choices .container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#choicesOverview {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#choicesOverview h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.choice-item {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.choice-item:last-child {
+  border-bottom: none;
+}
+
+.choice-item h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.choice-item p {
+  color: #666;
+  margin: 0;
+}
